@@ -2,3 +2,6 @@ flask
 transformers
 torch
 pandas
+gunicorn
+flask-cors
+joblib
