@@ -32,7 +32,8 @@ def login_user(username, password):
     if username not in users:
         return False, "User does not exist"
     
-    hashed_password = users[username]
+    user_data = users[username]
+    hashed_password = user_data["password"]
     if not check_password_hash(hashed_password, password):
         return False, "Incorrect password"
 
