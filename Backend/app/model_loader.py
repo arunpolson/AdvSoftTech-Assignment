@@ -1,8 +1,18 @@
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-def load_model(model_path=None):
-    model_name = "mrm8488/bert-tiny-finetuned-sentiment"
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForSequenceClassification.from_pretrained(model_name)
-    labels = ["Negative", "Positive"]  # Adjust if needed
-    return tokenizer, model, labels
+def load_model():
+    analyzer = SentimentIntensityAnalyzer()
+    labels = ["Negative", "Neutral", "Positive"]
+    return analyzer, labels
+
+# In your predictor:
+def predict_sentiment(text, analyzer, labels):
+    scores = analyzer.polarity_scores(text)
+    compound = scores['compound']
+    if compound >= 0.05:
+        label = "Positive"
+    elif compound <= -0.05:
+        label = "Negative"
+    else:
+        label = "Neutral"
+    return {"label": label, "scores": scores}
