@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
-from app.model_loader import load_model
-from app.predictor import predict_sentiment
+from app.model_loader import load_model  # <-- Use VADER version!
 from app.auth import register_user, login_user
+from app.predictor import predict_sentiment
 import pandas as pd
 import io
 import requests  # ✅ For internal API call
