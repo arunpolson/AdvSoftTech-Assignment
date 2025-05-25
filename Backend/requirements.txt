@@ -3,3 +3,4 @@ transformers
 torch
 pandas
 vaderSentiment
+flask-swagger-ui
