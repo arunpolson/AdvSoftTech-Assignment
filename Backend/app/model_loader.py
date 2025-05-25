@@ -5,7 +5,6 @@ def load_model():
     labels = ["Negative", "Neutral", "Positive"]
     return analyzer, labels
 
-# In your predictor:
 def predict_sentiment(text, analyzer, labels):
     scores = analyzer.polarity_scores(text)
     compound = scores['compound']
@@ -16,14 +15,3 @@ def predict_sentiment(text, analyzer, labels):
     else:
         label = "Neutral"
     return {"label": label, "scores": scores}
-
-result = predict_sentiment(str(text), analyzer, labels)
-row = {
-    "text": text,
-    "label": result["label"],
-    "negative": result["scores"]["neg"],
-    "neutral": result["scores"]["neu"],
-    "positive": result["scores"]["pos"],
-    "compound": result["scores"]["compound"]
-}
-rows.append(row)
