@@ -5,4 +5,6 @@ def load_model():
     labels = ["Negative", "Neutral", "Positive"]
     return analyzer, labels
 
-# Makes 'app' a Python package (can be left empty)# Makes 'app' a Python package (can be left empty)
+analyzer, labels = load_model()
+
+# Makes 'app' a Python package (can be left empty)
