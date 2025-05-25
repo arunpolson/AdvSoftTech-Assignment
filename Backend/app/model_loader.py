@@ -1,9 +1,8 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import os
 
 def load_model(model_path=None):
-    model_name = "distilbert-base-uncased-finetuned-sst-2-english"
+    model_name = "mrm8488/bert-tiny-finetuned-sentiment"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
-    labels = ["Negative", "Positive"]
+    labels = ["Negative", "Positive"]  # Adjust if needed
     return tokenizer, model, labels
