@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Add this import
 from app.model_loader import load_model, predict_sentiment  # <-- Only this!
 from app.auth import register_user, login_user
 import pandas as pd
@@ -6,6 +7,7 @@ import io
 import requests
 
 app = Flask(__name__)
+CORS(app)  # Allow CORS from anywhere
 
 # Load model on startup
 analyzer, labels = load_model()
