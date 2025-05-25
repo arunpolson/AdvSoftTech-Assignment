@@ -2,4 +2,4 @@ flask
 transformers
 torch
 pandas
-flask-swagger-ui
+vaderSentiment
